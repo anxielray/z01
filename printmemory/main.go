@@ -8,13 +8,13 @@ import (
 )
 
 func main() {
-	if len(os.Args) != 2 {
+	if len(os.Args) != 2 { // ensure we have the correct number of arguments in the command line... Print a new line!
 		z01.PrintRune(10)
 		return
 	}
-	str := (PrintHex(os.Args[1])) //checkLength(PrintHex(os.Args[1]))
+	str := (PrintHex(os.Args[1]))
 	for _, char := range str {
-		// fmt.Printf("%x ", char)
+		// fmt.Printf("%x ", char) // Short fmt. way to  print the address of a character...
 		z01.PrintRune(char)
 	}
 	z01.PrintRune(10)
@@ -23,17 +23,16 @@ func main() {
 
 func PrintHex(s string) string {
 	var str string
+	var count int
 	for _, char := range s {
-
-		str += numToHex(int(char)) + " " //runeToInt(char))
+		str += numToHex(int(char)) + " " // concatenate each string(character) in the original string to a new proceeded by a new line...
+		count++
+		if count == 4 {
+			str += "\n"
+		}
 	}
 	return str
 }
-
-// func runeToInt(r rune) int {
-// 	fmt.Println(int(r - 48))
-// 	return int(r - 48)
-// }
 
 func numToHex(num int) (hex string) {
 	hexMap := map[int]string{
@@ -45,10 +44,3 @@ func numToHex(num int) (hex string) {
 	}
 	return
 }
-
-// func checkLength(arg string) string {
-// 	if len(arg) == 12 {
-// 		z01.PrintRune(10)
-// 	}
-// 	return arg
-// }
