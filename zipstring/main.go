@@ -23,7 +23,7 @@ func ZipString(s string) string {
 		} else { // if the prefixing character is not equal to the previous one, count is retained as 1.
 			str += (strconv.Itoa(count))
 			str += string(s[i-1])
-			count = 1 // the value of the count is reset back to 1... and the loop moves to the next i value...
+			count = 1 // the value of the count is reset back to 1... and the loop moves to the next i value...w
 		}
 	}
 	str += strconv.Itoa(count)
